@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Items</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body class="container" id="app">
+<div>
+  <h1>Select Multiple Items</h1>
+  <label>
+    <h5>Comma Separated Values:</h5>
+    <p>show list of values separated by commas</p>
+    <input type="text" class="form-control" name="comma">
+  </label>
+</div>
+<br>
+<div>
+  <label>
+    <h5>Multiline Values:</h5>
+    <p>show all items selected in a stack</p>
+    <textarea class="form-control" rows="6"></textarea>
+  </label>
+</div>
+<br>
+<div>
+  <label>
+    <h5>Multiselect Values:</h5>
+    <p>Be able to select multiple values</p>
+    <select name="multiselect" size="6">
+      <option value="apple">apple</option>
+      <option value="cherry">cherry</option>
+      <option value="pair">pair</option>
+      <option value="mango">mango</option>
+      <option value="banana">banana</option>
+      <option value="plum">plum</option>
+    </select>
+  </label>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  new Vue({
+    el: '#app'
+  })
+</script>
+</body>
+</html>
