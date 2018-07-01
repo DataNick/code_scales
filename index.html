@@ -12,7 +12,7 @@
     <label>
       <h5>Comma Separated Values:</h5>
       <p>show list of values separated by commas</p>
-      <input type="text" class="form-control" name="comma">
+      <input type="text" class="form-control" name="comma" v-model="commaSeparated" value="hello">
     </label>
   </div>
   <br>
@@ -20,7 +20,7 @@
     <label>
       <h5>Multiline Values:</h5>
       <p>show all items selected in a stack</p>
-      <textarea class="form-control" rows="6"></textarea>
+      <textarea class="form-control" rows="6">{{multiLine}}</textarea>
     </label>
   </div>
   <br>
@@ -28,21 +28,42 @@
     <label>
       <h5>Multiselect Values:</h5>
       <p>Be able to select multiple values</p>
-      <select name="multiselect" size="6" v-model='multiSelection'>
+      <select multiple='true' name="multiselect" size="6" v-model='multiSelection'>
         <option v-for="fruit in fruits" v-bind='{fruit}'>{{ fruit }}</option>
       </select>
     </label>
   </div>
+  {{multiSelection}}
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script>
   new Vue({
     el: '#app',
     data: {
-      fruits: ['apple', 'cherry', 'pear', 'mango', 'banana', 'orange'],
+      fruits: ['apple', 'pear', 'banana', 'orange', 'mango', 'cherry'],
       commaSeparated: '',
       multiLine: '',
       multiSelection: []
+    },
+    methods: {
+      // clicked: function(event) {
+
+      //   console.log(this.fruits);
+      // },
+      // addToCommaList: function() {
+      //   console.log('change')
+      // },
+      // addToList: function(event){
+      //   console.log(this.fruits)
+      //   let value = event.target.value;
+      //   let ms = this.multiSelection
+      //   if (ms.indexOf(value) > -1) {
+      //     return false
+      //   } else {
+      //     ms.push(value)
+      //     console.log('multiselection ' + this.multiSelection);
+      //   }
+      // }
     }
   })
 </script>
