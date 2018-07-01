@@ -28,8 +28,8 @@
     <label>
       <h5>Multiselect Values:</h5>
       <p>Be able to select multiple values</p>
-      <select name="multiselect" size="6">
-        <option v-for="fruit in fruits">{{ fruit }}</option>
+      <select name="multiselect" size="6" v-model='multiSelection'>
+        <option v-for="fruit in fruits" v-bind='{fruit}'>{{ fruit }}</option>
       </select>
     </label>
   </div>
@@ -39,7 +39,10 @@
   new Vue({
     el: '#app',
     data: {
-      fruits: ['apple', 'cherry', 'pear', 'mango', 'banana', 'orange']
+      fruits: ['apple', 'cherry', 'pear', 'mango', 'banana', 'orange'],
+      commaSeparated: '',
+      multiLine: '',
+      multiSelection: []
     }
   })
 </script>
