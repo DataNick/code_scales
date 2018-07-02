@@ -20,7 +20,7 @@
     <label>
       <h5>Multiline Values:</h5>
       <p>show all items selected in a stack</p>
-      <textarea class="form-control" rows="6">{{multiLine}}</textarea>
+      <textarea class="form-control" rows="6">{{showMultiLine}}</textarea>
     </label>
   </div>
   <br>
@@ -46,24 +46,14 @@
       multiSelection: []
     },
     methods: {
-      // clicked: function(event) {
 
-      //   console.log(this.fruits);
-      // },
-      // addToCommaList: function() {
-      //   console.log('change')
-      // },
-      // addToList: function(event){
-      //   console.log(this.fruits)
-      //   let value = event.target.value;
-      //   let ms = this.multiSelection
-      //   if (ms.indexOf(value) > -1) {
-      //     return false
-      //   } else {
-      //     ms.push(value)
-      //     console.log('multiselection ' + this.multiSelection);
-      //   }
-      // }
+    },
+    computed: {
+      showMultiLine: function() {
+        console.log('here');
+        this.multiLine = this.multiSelection.join('\n');
+        return this.multiLine
+      }
     }
   })
 </script>
