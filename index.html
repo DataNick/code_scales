@@ -12,7 +12,7 @@
     <label>
       <h5>Comma Separated Values:</h5>
       <p>show list of values separated by commas</p>
-      <input type="text" class="form-control" name="comma" v-model="commaSeparated" value="hello">
+      <input type="text" class="form-control" name="comma" v-model="commaSeparated" @keyup="commaChange" size="45" value="{commaSeparated}">
     </label>
   </div>
   <br>
@@ -20,7 +20,7 @@
     <label>
       <h5>Multiline Values:</h5>
       <p>show all items selected in a stack</p>
-      <textarea class="form-control" rows="6">{{showMultiLine}}</textarea>
+      <textarea class="form-control" rows="6">{{outputMultiLine}}</textarea>
     </label>
   </div>
   <br>
@@ -46,12 +46,16 @@
       multiSelection: []
     },
     methods: {
-
+      commaChange: function(event) {
+        let fruit = event.target.value.toString();
+        this.multiLine += fruit
+        this.multiLine.replace(',', '\n')
+      }
     },
     computed: {
-      showMultiLine: function() {
-        console.log('here');
+      outputMultiLine: function() {
         this.multiLine = this.multiSelection.join('\n');
+        this.commaSeparated = this.multiSelection.join(',')
         return this.multiLine
       }
     }
